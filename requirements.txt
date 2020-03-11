@@ -5,7 +5,7 @@ Click==7.0
 Flask==1.1.1
 Flask-Login==0.5.0
 Flask-Mail==0.9.1
-flask-restplus==0.13.0
+flask-restx
 itsdangerous==1.1.0
 Jinja2==2.11.1
 jsonschema==3.2.0
@@ -13,4 +13,4 @@ MarkupSafe==1.1.1
 pyrsistent==0.15.7
 pytz==2019.3
 six==1.14.0
-Werkzeug==1.0.0
+Werkzeug==0.16.1
