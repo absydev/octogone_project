@@ -1,13 +1,16 @@
 from flask import Flask
 from octogone.config import Config
-from octogone.api import bp as api_bp
 import logging
 import os
 from flask_mail import Mail
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from logging.handlers import SMTPHandler, RotatingFileHandler
 
 # Init Flask's module.
 mail = Mail()
+db = SQLAlchemy()
+migrate = Migrate()
 
 
 def create_app(config_class=Config):
@@ -20,11 +23,14 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
 
     mail.init_app(app)
+    db.init_app(app)
+    migrate.init_app(app, db)
 
     from octogone.errors import bp as errors_bp
     app.register_blueprint(errors_bp)
 
-    app.register_blueprint(api_bp, url_prefix="/api")
+    from octogone.routes import bp as api_bp
+    app.register_blueprint(api_bp, url_prefix="/routes")
 
     if not app.debug and not app.testing:
         # if app.config['MAIL_SERVER']:

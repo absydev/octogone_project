@@ -1,9 +1,9 @@
 from flask import Blueprint, current_app, request, make_response
 from flask_restx import Api
 import json
-from octogone.api.users import api as ns_users
+from octogone.routes.users import api as ns_users
 
-bp = Blueprint('api', __name__)
+bp = Blueprint('routes', __name__)
 
 api = Api(
     bp,

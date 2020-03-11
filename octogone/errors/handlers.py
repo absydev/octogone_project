@@ -1,5 +1,5 @@
 from octogone.errors import bp
-from octogone.api.errors import error_response
+from octogone.routes.errors import error_response
 from flask import current_app
 
 
