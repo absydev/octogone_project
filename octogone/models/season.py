@@ -14,3 +14,5 @@ class Season(BaseModel):
     end_datetime = db.Column(db.DateTime())
 
     # Relationships
+
+    game_profiles = db.relationship("GameProfile", backref="season", uselist=True, lazy=True)

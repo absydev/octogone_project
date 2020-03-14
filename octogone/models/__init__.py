@@ -6,3 +6,4 @@ from .game_rule import GameRule
 from .octogone import Octogone
 from .game_profile import GameProfile
 from .season import Season
+from .octogones_game_rule_profile_association import OctogonesGameRuleProfileAssociation
