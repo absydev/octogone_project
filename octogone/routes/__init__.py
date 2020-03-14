@@ -1,5 +1,6 @@
 from flask import Blueprint, current_app, request, make_response
 from flask_restx import Api
+from octogone.app import db
 import json
 from octogone.routes.users import api as ns_users
 
@@ -43,4 +44,6 @@ def before_request():
 def after_request(resp):
     """
     """
+    db.session.commit()
+    db.session.close()
     return resp
