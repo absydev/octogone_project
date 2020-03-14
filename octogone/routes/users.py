@@ -1,6 +1,5 @@
 from flask_restx import Namespace, Resource
 from flask_login import login_required
-from octogone.business.user_manager import UserManager
 
 api = Namespace('users', description='Users operations')
 
