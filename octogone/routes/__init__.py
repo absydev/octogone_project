@@ -1,4 +1,4 @@
-from flask import Blueprint, current_app, request, make_response
+from flask import Blueprint, current_app, request, make_response, g
 from flask_restx import Api
 from octogone.app import db
 import json
@@ -37,7 +37,15 @@ def restful_output_json(data, code, headers=None):
 def before_request():
     """Before request for API Blueprint
     """
-    pass
+    import octogone.managers as mgr
+    g.gameRuleProfileManager = mgr.GameRuleProfileManager()
+    g.gameManager = mgr.GameManager()
+    g.userManager = mgr.UserManager()
+    g.profileManager = mgr.ProfileManager()
+    g.gameRuleManager = mgr.GameRuleManager()
+    g.octogoneManager = mgr.OctogoneManager()
+    g.gameProfileManager = mgr.GameProfileManager()
+    g.seasonManager = mgr.SeasonManager()
 
 
 @bp.after_request
