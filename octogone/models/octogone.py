@@ -2,7 +2,6 @@ import enum
 
 from octogone import db
 from octogone.models.base_model import BaseModel
-from octogone.models.game_rule_profile import octogones_game_rule_profile_association
 
 
 class Status(enum.Enum):
@@ -29,6 +28,6 @@ class Octogone(BaseModel):
 
     game_rule_profiles = db.relationship(
         "GameRuleProfile",
-        secondary=octogones_game_rule_profile_association,
+        secondary="octogones_game_rule_profile_association",
         lazy='subquery'
     )

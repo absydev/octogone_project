@@ -17,3 +17,4 @@ class GameProfile(BaseModel):
     season_id = db.Column(db.Integer, db.ForeignKey("season.id"), nullable=False)
     game_id = db.Column(db.Integer, db.ForeignKey("game.id"), nullable=False)
 
+    game_rule_profiles = db.relationship("GameRuleProfile", backref="game_profile", uselist=True, lazy=True)
