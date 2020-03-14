@@ -1,5 +1,6 @@
 from octogone import db
 from octogone.models.base_model import BaseModel
+from octogone.utils.db_function import flush
 
 
 class GameRule(BaseModel):
@@ -16,3 +17,10 @@ class GameRule(BaseModel):
 
     game_id = db.Column(db.Integer, db.ForeignKey("game.id"), nullable=False)
     game_rule_profiles = db.relationship("GameRuleProfile", backref="game_rule", uselist=True, lazy=True)
+
+    @classmethod
+    def create(cls, text, ranked, game_id):
+        game_rule = cls(text=text, ranked=ranked, game_id=game_id)
+        db.session.add(game_rule)
+        flush()
+        return game_rule

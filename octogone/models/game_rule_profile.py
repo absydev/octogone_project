@@ -1,5 +1,6 @@
 from octogone import db
 from octogone.models.base_model import BaseModel
+from octogone.utils.db_function import flush
 
 
 class GameRuleProfile(BaseModel):
@@ -21,3 +22,10 @@ class GameRuleProfile(BaseModel):
                                 secondary="octogones_game_rule_profile_association",
                                 lazy='subquery',
                                 )
+
+    @classmethod
+    def create(cls, game_rule_id, game_profile_id):
+        game_rule_profile = cls(game_profile_id=game_profile_id, game_rule_id=game_rule_id)
+        db.session.add(game_rule_profile)
+        flush()
+        return game_rule_profile
