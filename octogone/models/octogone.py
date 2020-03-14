@@ -2,6 +2,7 @@ import enum
 
 from octogone import db
 from octogone.models.base_model import BaseModel
+from octogone.utils.db_function import flush
 
 
 class Status(enum.Enum):
@@ -31,3 +32,11 @@ class Octogone(BaseModel):
         secondary="octogones_game_rule_profile_association",
         lazy='subquery'
     )
+
+    @classmethod
+    def create(cls, ranked, game_rule_profile):
+        octogone = cls(ranked)
+        octogone.game_rule_profiles.append(game_rule_profile)
+        db.session.add(octogone)
+        flush()
+        return octogone

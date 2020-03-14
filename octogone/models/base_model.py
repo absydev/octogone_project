@@ -1,6 +1,7 @@
 import datetime
 
 from octogone import db
+from octogone.utils.db_function import flush
 
 
 class BaseModel(db.Model):
@@ -24,3 +25,8 @@ class BaseModel(db.Model):
 
     def __repr__(self):
         return f"{self.__table__}:{self.id}"
+
+    def update(self, dict):
+        for attribute in dict:
+            setattr(self, attribute, dict[attribute])
+        flush()
