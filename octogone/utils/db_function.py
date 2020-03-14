@@ -1,6 +1,13 @@
 from octogone.app import db
 
 
+class DatabaseException(Exception):
+    """
+    Exception raised when the flush fails
+    """
+    pass
+
+
 def flush():
     """
     Flush db transaction
@@ -11,4 +18,4 @@ def flush():
         db.session.flush()
     except:
         db.session.rollback()
-        raise
+        raise DatabaseException
