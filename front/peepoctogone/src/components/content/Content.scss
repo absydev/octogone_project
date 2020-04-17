@@ -1,0 +1,37 @@
+.Content {
+  flex: 1 1 auto;
+  justify-content: stretch;
+  align-items: stretch;
+  overflow: hidden;
+
+  background-image: url("../../assets/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.Content-blur-background {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  z-index: 5;
+}
+
+.Content-window {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Toaster {
+  z-index: 99999;
+}

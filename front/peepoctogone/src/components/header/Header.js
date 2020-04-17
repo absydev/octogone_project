@@ -20,8 +20,6 @@ import { Link } from 'react-router-dom'
 import { debugLog } from '../../lib/logs'
 import { connect } from 'react-redux'
 import { authenticationOff } from '../../redux/actions/authentication'
-import { unsetBusiness } from '../../redux/actions/business'
-import { unsetJob } from '../../redux/actions/job'
 import { isAuthorized } from '../../redux/selectors/authentication'
 
 const mapStateToProps = state => {
@@ -42,8 +40,6 @@ class Header extends React.Component {
     logout = () => {
       debugLog('Header::logout')
       this.props.authenticationOff()
-      this.props.unsetBusiness()
-      this.props.unsetJob()
     }
 
     render() {
@@ -89,7 +85,7 @@ class Header extends React.Component {
         authorizedContent =
                 <NavbarGroup className="no-text-decoration" align={Alignment.RIGHT}>
                   <Link to={SIGNIN_URL}><Button large="true" minimal="true" icon="plus"
-                    text="Create a project"/></Link>
+                    text="Sign in"/></Link>
                   <Link to={LOGIN_URL}><Button large="true" minimal="true" icon="log-in" text="Login"/></Link>
                 </NavbarGroup>
       }
@@ -97,7 +93,7 @@ class Header extends React.Component {
       return (
         <Navbar>
           <NavbarGroup align={Alignment.LEFT}>
-            <NavbarHeading className="no-text-decoration"><Link to={HOME_URL}>Tanatloc</Link></NavbarHeading>
+            <NavbarHeading className="no-text-decoration"><Link to={HOME_URL}>Peepoctogone</Link></NavbarHeading>
           </NavbarGroup>
           {authorizedContent}
         </Navbar>
@@ -108,15 +104,11 @@ class Header extends React.Component {
 Header.propTypes = {
   authentication: PropTypes.object.isRequired,
   authenticationOff: PropTypes.func.isRequired,
-  unsetBusiness: PropTypes.func.isRequired,
-  unsetJob: PropTypes.func.isRequired
 }
 
 export default connect(
   mapStateToProps,
   {
-    authenticationOff,
-    unsetBusiness,
-    unsetJob
+    authenticationOff
   }
 )(Header)

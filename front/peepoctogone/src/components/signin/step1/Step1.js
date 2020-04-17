@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Card, H1, InputGroup } from '@blueprintjs/core'
-import laplacianOnCube from '../../../assets/LaplacianOnCube.jpg'
+import peepoLogo from '../../../assets/peepo.jpg'
 
 import './Step1.scss'
 
@@ -53,7 +53,6 @@ class Step1 extends React.Component {
     /**
      * Handle key press and move the focus if the key is left or right
      *
-     * @param i id of the input code
      * @param event Event
      */
     handleKeyPress(event) {
@@ -74,10 +73,10 @@ class Step1 extends React.Component {
 
     render () {
       return (
-        <Card>
-          <H1>Create a new project</H1>
+        <div>
+          <H1>Sign in</H1>
           <p className="bp3-text-large">
-                    To make a project from scratch, please confirm your email address.
+                    To sign in, please enter your email address.
           </p>
           <InputGroup
             className="Signin-email"
@@ -101,11 +100,11 @@ class Step1 extends React.Component {
             type="button"
           />
           <img
-            className="Signin-laplacian"
-            src={laplacianOnCube}
-            alt="Laplacian on cube"
+            className="Signin-peepo"
+            src={peepoLogo}
+            alt="Peepo Logo"
           />
-        </Card>
+        </div>
       )
     }
 }

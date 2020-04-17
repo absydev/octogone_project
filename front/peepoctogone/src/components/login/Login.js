@@ -5,12 +5,13 @@ import './Login.scss'
 
 import { SIGNIN_URL, DASHBOARD_URL } from '../../config/routes'
 import { debugLog } from '../../lib/logs'
-import { userCheckLogin } from '../../lib/api'
+// import { userCheckLogin } from '../../lib/api'
 import { Link } from 'react-router-dom'
-import { Button, Card, FormGroup, InputGroup, Tooltip } from '@blueprintjs/core'
+import {Button, Card, FormGroup, H1, InputGroup, Tooltip} from '@blueprintjs/core'
 
 import { connect } from 'react-redux'
 import { authenticationOn } from '../../redux/actions/authentication'
+import peepoLogo from "../../assets/peepo_login.png";
 
 /**
  * Login class
@@ -81,17 +82,25 @@ class Login extends React.Component {
   handleLogin = (e) => {
     debugLog('Login::handleLogin')
     e.preventDefault()
-    userCheckLogin(
-      this.state.user,
-      res => {
+
+    // DEBUG
         this.props.authenticationOn({
-          id: res.id
+          id: 1
         })
         this.props.clearToaster()
         this.props.history.push(DASHBOARD_URL)
-      },
-      err => this.props.showToast('danger', err.message)
-    )
+
+    // userCheckLogin(
+    //   this.state.user,
+    //   res => {
+    //     this.props.authenticationOn({
+    //       id: res.id
+    //     })
+    //     this.props.clearToaster()
+    //     this.props.history.push(DASHBOARD_URL)
+    //   },
+    //   err => this.props.showToast('danger', err.message)
+    // )
   }
 
   render () {
@@ -107,7 +116,8 @@ class Login extends React.Component {
     return (
       <div className="Login">
         <div className="Login-center">
-          <Card>
+          <H1>Login</H1>
+          <div>
             <form>
               <FormGroup
                 label="User name:"
@@ -139,10 +149,15 @@ class Login extends React.Component {
                 <Button type="submit" intent="primary" text="Login" rightIcon="chevron-right" onClick={(e) => this.handleLogin(e)} />
               </div>
             </form>
+            <img
+                className="Login-peepo"
+                src={peepoLogo}
+                alt="Peepo Logo"
+            />
             <Link to={SIGNIN_URL}>
               Do not have an account? Create one!
             </Link>
-          </Card>
+          </div>
         </div>
       </div>
     )
