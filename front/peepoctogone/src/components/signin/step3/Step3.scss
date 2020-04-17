@@ -1,0 +1,30 @@
+.Signin-avatar{
+  margin: 2rem auto 1rem auto;
+  display: flex;
+  width: 20%;
+}
+
+.Signin-fullName{
+  display: flex;
+}
+
+.Signin-firstName
+{
+  flex: 1
+}
+
+.Signin-lastName{
+  flex: 3
+}
+
+.Signin-password{
+  padding-bottom: 1%;
+}
+
+.Signin-password-error{
+  margin-bottom: 1%;
+}
+
+.Signin-confirm-password-error{
+  margin-top: 1%;
+}

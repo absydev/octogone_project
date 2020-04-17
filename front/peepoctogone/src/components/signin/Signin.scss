@@ -1,0 +1,51 @@
+.Signin {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 550px;
+}
+.Signin H1{
+  font-size: 30px;
+}
+
+.Signin p {
+  padding-top: 1rem;
+}
+
+.Signin-email {
+  margin: 1rem 0 1rem 0;
+}
+
+.Signin-validation {
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Signin-code-error{
+  margin-top: 1rem;
+}
+
+.Signin-blur-background {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  z-index: 99999;
+}
+
+.Signin-false-dashboard {
+  background-image: url("../../assets/dashboard_background.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,16 @@
+.Login {
+  flex: 1 1 auto;
+  display: flex;
+  background-color: #eee;
+}
+
+.Login-center {
+  margin: auto;
+}
+
+.Login .Login-button {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: .5rem;
+}
