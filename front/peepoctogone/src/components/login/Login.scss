@@ -1,0 +1,19 @@
+.Login {
+}
+
+.Login-center {
+  margin: auto;
+}
+
+.Login-peepo {
+  margin: 2rem auto 1rem auto;
+  display: flex;
+  width: 50%;
+}
+
+.Login .Login-button {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: .5rem;
+}
